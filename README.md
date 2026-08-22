@@ -32,6 +32,10 @@ Disease selection follows the CDC's definition of chronic disease.
 * **Merged Dataset (`merged_df`):** Inner-joined on country ISO3 code and year, yielding **5,520 records** (184 countries × up to 29 years), with 9 death-ratio features, 3 development metrics, and identifier columns.
 
 ### Data Quality Notes
+
+![Countries with missing data](images/countries_with_missing_data.png)
+*Fig. 1 — Count of missing year-rows per country (out of a possible 29–30). Somalia, North Korea, Nauru, and Monaco are missing essentially all rows; San Marino follows closely, then a long tail of small nations and territories with partial gaps.*
+
 - **Nauru, North Korea, and Somalia** were dropped entirely — each was missing all 29 possible year-rows.
 - Checking average development metrics against the number of missing rows per country showed no strong systematic bias toward excluding less-developed nations, with one exception: a sharp spike at 27 missing rows, attributable to **San Marino** (small, highly developed, but with a very short data history).
 - National reporting quality for mortality varies, particularly in low- and middle-income countries, and GNI figures can involve estimation error — both are limitations inherited from the source data rather than something this project corrects for.
@@ -57,6 +61,18 @@ Using a **K-Nearest Neighbors (KNN)** regressor with integrated feature selectio
 - **HIV/AIDS** — mortality is highly regionally clustered (concentrated in parts of Africa), making it a poor general correlate of income or composite development, though still informative for life expectancy.
 - **Alzheimer's/dementias** — likely underdiagnosed in low-resource settings, reducing its reliability outside GNI prediction.
 - **Neoplasms (cancer)** — driven by many independent factors (tobacco use, environmental exposure) that don't cleanly track development level.
+
+![Death ratio vs HDI](images/death_ratio_v_hdi.png)
+*Fig. 3 — Each disease's death ratio plotted against HDI, with a linear fit. Neoplasms, cardiovascular disease, and Parkinson's rise clearly with HDI; cirrhosis, respiratory disease, and HIV/AIDS fall.*
+
+![Death ratio vs GNI per capita](images/death_ratio_vs_gni_per_capita.png)
+*Fig. 4 — The same disease ratios plotted against GNI per capita. Trends broadly echo the HDI plots, though noisier at high income levels.*
+
+![Death ratio vs life expectancy](images/death_ratio_v_life_expectancy.png)
+*Fig. 5 — The same disease ratios plotted against life expectancy — the closest-matching shape to the HDI plots, consistent with life expectancy being an HDI component.*
+
+![Best model MSE vs. number of features](images/best_model_mse.png)
+*Fig. 6 — Mean squared error of the best KNN model as more disease features are added, for each of the three targets. Error drops sharply through the first few features, then flattens (and for GNI, ticks back up) once enough diseases are included — the basis for the "optimal # features" column above.*
 
 **Unexplained variance (~11%):** likely attributable to non-health factors excluded from this study (education, inequality), regional gaps in mortality-data quality, and a time lag between development gains and observable shifts in mortality patterns.
 
