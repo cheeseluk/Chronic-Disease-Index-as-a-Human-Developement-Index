@@ -33,7 +33,7 @@ Disease selection follows the CDC's definition of chronic disease.
 
 ### Data Quality Notes
 
-![Countries with missing data](images/countries_with_missing_data.png)
+![Countries with missing data](<img width="3636" height="3020" alt="countries with missing data" src="https://github.com/user-attachments/assets/58eb9bf1-5fa0-4a3c-b1e2-0b0bf1817357" />)
 *Fig. 1 — Count of missing year-rows per country (out of a possible 29–30). Somalia, North Korea, Nauru, and Monaco are missing essentially all rows; San Marino follows closely, then a long tail of small nations and territories with partial gaps.*
 
 - **Nauru, North Korea, and Somalia** were dropped entirely — each was missing all 29 possible year-rows.
@@ -62,16 +62,20 @@ Using a **K-Nearest Neighbors (KNN)** regressor with integrated feature selectio
 - **Alzheimer's/dementias** — likely underdiagnosed in low-resource settings, reducing its reliability outside GNI prediction.
 - **Neoplasms (cancer)** — driven by many independent factors (tobacco use, environmental exposure) that don't cleanly track development level.
 
-![Death ratio vs HDI](images/death_ratio_v_hdi.png)
+![Death ratio vs HDI](<img width="1039" height="1107" alt="death ratio v hdi" src="https://github.com/user-attachments/assets/f52eba70-b7f7-408b-9fc0-a871f55b6f7c" />
+)
 *Fig. 3 — Each disease's death ratio plotted against HDI, with a linear fit. Neoplasms, cardiovascular disease, and Parkinson's rise clearly with HDI; cirrhosis, respiratory disease, and HIV/AIDS fall.*
 
-![Death ratio vs GNI per capita](images/death_ratio_vs_gni_per_capita.png)
+![Death ratio vs GNI per capita](<img width="1040" height="1107" alt="death ratio vs gni per capita" src="https://github.com/user-attachments/assets/1e7967fe-4a35-41c5-ac33-882f5a9d63d8" />
+)
 *Fig. 4 — The same disease ratios plotted against GNI per capita. Trends broadly echo the HDI plots, though noisier at high income levels.*
 
-![Death ratio vs life expectancy](images/death_ratio_v_life_expectancy.png)
+![Death ratio vs life expectancy](<img width="1039" height="1107" alt="death ratio v life expectancy" src="https://github.com/user-attachments/assets/5e9515d2-804d-4513-8d22-01b6aaecf957" />
+)
 *Fig. 5 — The same disease ratios plotted against life expectancy — the closest-matching shape to the HDI plots, consistent with life expectancy being an HDI component.*
 
-![Best model MSE vs. number of features](images/best_model_mse.png)
+![Best model MSE vs. number of features](<img width="790" height="1489" alt="best model mse" src="https://github.com/user-attachments/assets/6ac0d222-8934-485c-a7de-e910b403840b" />
+)
 *Fig. 6 — Mean squared error of the best KNN model as more disease features are added, for each of the three targets. Error drops sharply through the first few features, then flattens (and for GNI, ticks back up) once enough diseases are included — the basis for the "optimal # features" column above.*
 
 **Unexplained variance (~11%):** likely attributable to non-health factors excluded from this study (education, inequality), regional gaps in mortality-data quality, and a time lag between development gains and observable shifts in mortality patterns.
