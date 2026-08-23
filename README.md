@@ -43,6 +43,23 @@ Disease selection follows the CDC's definition of chronic disease.
 
 ---
 
+## How to Run
+ 
+**Setup:**
+```bash
+pip install -r requirements.txt
+```
+ 
+**Execution order matters:** the notebook for **Question 1** performs the EDA, data cleaning, and merge, and produces `merged_df` — the dataset every other question depends on. Questions 2–4 each just load `merged_df` and are independent of one another, so they can be run in any order (or in parallel) once it exists.
+ 
+1. Run the **Question 1** notebook first.
+   > ⚠️ **This one takes a while.** It runs a large hyperparameter grid search over the KNN regressors and feature-selection combinations — roughly **~30 minutes** on a Ryzen 7900X. Budget time accordingly, or grab the pre-built `merged_df` included in the repo to skip straight to Questions 2–4.
+2. Run **Question 2**, **Question 3**, and **Question 4** in any order — each finishes quickly.
+**Data sources:** the mortality dataset is pulled automatically at runtime via `kagglehub` (`iamsouravbanerjee/cause-of-deaths-around-the-world`); no manual download needed. The HDI dataset (`Human Development Index - Full.csv`) is expected to already be present in the working directory, as it's not pulled programmatically.
+ 
+---
+
+
 ## Key Research Findings
 
 ### 1. Predicting Traditional Development Metrics (Regression)
