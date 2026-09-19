@@ -6,7 +6,7 @@ The **Chronic Disease Index (CDI)** evaluates whether mortality distribution acr
 
 While metrics like the **Human Development Index (HDI)**, **Life Expectancy**, and **Gross National Income (GNI) per capita** are difficult and slow to collect, healthcare and mortality data are often more readily available. CDI constructs a 9-dimensional conditional probability vector — the **death ratio** — representing the distribution of mortality across chronic diseases given that an individual has contracted a chronic disease:
 
-$$P(\text{Death from Disease } i \mid \text{Contracted a Chronic Disease})$$
+$$P(\text{Death from Disease } i \mid \text{Died From One of Nine Chronic Diseases Studied})$$
 
 This project does not claim the death ratio is *easier* to collect than traditional indicators. It tests whether the death ratio can stand in for them for a country whose economic or educational data is unavailable. That means the model has to work on countries it has never seen, which is how Question 1 is evaluated (see the evaluation note below).
 
