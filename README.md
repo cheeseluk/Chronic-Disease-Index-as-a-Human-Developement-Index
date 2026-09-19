@@ -4,7 +4,7 @@
 
 The **Chronic Disease Index (CDI)** evaluates whether mortality distribution across major chronic diseases can serve as a proxy for global socio-economic development.
 
-While metrics like the **Human Development Index (HDI)**, **Life Expectancy**, and **Gross National Income (GNI) per capita** are difficult and slow to collect, healthcare and mortality data are often more readily available. CDI constructs a 9-dimensional conditional probability vector — the **death ratio** — representing the distribution of mortality across chronic diseases given that an individual has contracted a chronic disease:
+While metrics like the **Human Development Index (HDI)**, **Life Expectancy**, and **Gross National Income (GNI) per capita** are difficult and slow to collect, healthcare and mortality data are often more readily available. CDI constructs a 9-dimensional conditional probability vector — the **death ratio** — representing the distribution of mortality across chronic diseases given that an individual has contracted a chronic disease and died from a chronic disease:
 
 $$P(\text{Death from Disease } i \mid \text{Died From One of Nine Chronic Diseases Studied})$$
 
